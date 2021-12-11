@@ -6,7 +6,7 @@ import javax.servlet.jsp.*;
 import java.sql.ResultSet;
 import dbconnection.database;
 
-public final class Product_005fcateogry_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class product_005fdetail_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -96,68 +96,59 @@ public final class Product_005fcateogry_jsp extends org.apache.jasper.runtime.Ht
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>All Products</title>\n");
-      out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\n");
-      out.write("<!-- JavaScript Bundle with Popper -->\n");
-      out.write("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>\n");
+      out.write("        <title>Product detail</title>\n");
+      out.write("        \n");
       out.write("    </head>\n");
       out.write("    <body class=\"container\">\n");
-      out.write("       \n");
-      out.write("        <h1 class=\"text-center mt-5 border\">Product Details</h1>\n");
-      out.write("           <table>\n");
-      out.write("               <tr>   \n");
-      out.write("\n");
-      out.write("    ");
- 
-            int cn=0;
+      out.write("        \n");
+      out.write("       <div class=\"content mt-5\">\n");
+      out.write("        <div class=\"row col-12 mt-2\">\n");
+      out.write("        ");
+
+            String category = request.getParameter("id");
             database db = new database();
             db.connect();
-            ResultSet rs = db.st.executeQuery("select * from product_category");
+            ResultSet rs = db.st.executeQuery("select * from product where pro_cate ='"+category+"' ");
             
+           while(rs.next())
+           
+           {  
             
-        while(rs.next()) 
-        {
-          cn++; 
-         
-      out.write("   \n");
-      out.write("    \n");
-      out.write(" \n");
-      out.write("         <!----> <td class=\"p-2\" style=\"border: 1px solid black \">\n");
-      out.write("             <a href=\"product_detail.jsp?id=");
-      out.print(rs.getString("category_name") );
-      out.write("\" > <div class=\"card\">\n");
-      out.write("           <img  src=\"image/");
-      out.print(rs.getString("cate_img") );
-      out.write("\" height=\"200px\" width=\"300px\" class=\"card-img-top\" alt=\"...\">\n");
-      out.write("       <div class=\"card-body\">\n");
-      out.write("           <h3 class=\"card-title text-danger\">");
-      out.print(rs.getString("category_name") );
-      out.write("</h3>\n");
-      out.write("        <p class=\"card-text\">");
-      out.print(rs.getString("cate_detail") );
-      out.write("</p>\n");
-      out.write("       </div></a>\n");
-      out.write("                   </td>\n");
-      out.write("        \n");
+      out.write("\n");
+      out.write("     \n");
+      out.write("           <div class=\"col-md-2 \" style=\"background-color: rosybrown\">\n");
+      out.write("            <div class=\"card\">\n");
+      out.write("                <img src=\"image/prodimg/");
+      out.print(rs.getString("pro_img") );
+      out.write("\" height=\"120px\" class=\"card-img-top\" alt=\"...\">\n");
+      out.write("<!--              <div class=\"card-body\">\n");
+      out.write("                  <h5 class=\"card-title\"></h5>\n");
+      out.write("                <p class=\"card-text\">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>\n");
+      out.write("              </div>-->\n");
+      out.write("            </div>\n");
+      out.write("          </div>\n");
+      out.write("         <!--<div class=\"col-md-1\"></div>-->\n");
+      out.write("         <div class=\"row col-md-4 border\" style=\"background-color: rosybrown\">\n");
+      out.write("                <h4 class=\"p-1\">");
+      out.print(rs.getString("pro_title") );
+      out.write("</h4>\n");
+      out.write("                <b class=\"p-1\">");
+      out.print(rs.getString("pro_price") );
+      out.write("₹</b> \n");
+      out.write("                <!--<div class=\"col-md-10\">-->\n");
+      out.write("                <p class=\"p-1\">");
+      out.print(rs.getString("pro_desc") );
+      out.write("</p>           \n");
+      out.write("                <a href=\"#\"><b class=\"col-md-4 btn btn-success\">Add to Cart</b></a>\n");
+      out.write("                <a href=\"#\"><b class=\"col-md-3  btn btn-info\">Buy</b></a>\n");
+      out.write("              \n");
+      out.write("            </div>\n");
+      out.write("<!--       </div> -->\n");
       out.write("       ");
-  
-        if(cn==3)
-        {
-            cn=0;
-            
+ } 
       out.write("\n");
-      out.write("         </tr>  \n");
-      out.write("     ");
-    
-        }   
-          
-      }
-        
-      out.write("\n");
-      out.write("            \n");
-      out.write("             \n");
-      out.write("       \n");
-      out.write("        \n");
+      out.write("         <div >\n");
+      out.write("       </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

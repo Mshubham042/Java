@@ -8,6 +8,7 @@ import dbconnection.database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.logging.Level;
@@ -18,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -48,9 +50,38 @@ public class product_backend extends HttpServlet {
              database db = new database();
               db.connect();
             
+              
+          String login = request.getParameter("login");
+          
+          if(login!=null)
+          {
+          String uname = request.getParameter("username");
+          String pwd = request.getParameter("password");
+          
+          String qry = "select * from users where Name = '"+uname+"' and password = '"+pwd+"' ";
+          
+                 try {
+                     ResultSet rs = db.st.executeQuery(qry);
+                     if(rs.next())
+                     {
+//                         out.println("login");
+                         HttpSession session = request.getSession();
+                         session.setAttribute("username", uname);
+                         response.sendRedirect("Product_cateogry.jsp");
+                     }
+                     else
+                     {
+                        response.sendRedirect("login.jsp?error=1");
+                     }
+                 } catch (SQLException ex) {
+                     Logger.getLogger(product_backend.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+          
+         
+          }
 
            String add_cate = request.getParameter("addcate");
-
+           
            if(add_cate!=null)
                
        {

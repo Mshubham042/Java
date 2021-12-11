@@ -7,19 +7,31 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dbconnection.database"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="header.jsp" %>
+<%--<jsp:useBean beanName="cart" scope="session" id="addto" >--%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product detail</title>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        
     </head>
     <body class="container">
         
        <div class="content mt-5">
-         
+        <div class="row col-12 mt-2">
+        
+       <%
+//           String addcart = request.getParameter("add");
+//           
+//           if(addcart!=null)
+//           {
+//               
+//           }
+           
+           %>
+            
+            
         <%
             String category = request.getParameter("id");
             database db = new database();
@@ -30,10 +42,10 @@
            
            {  
             %>
-       <div class="row col-10 mt-2">
-            <div class="col-md-3">
+     
+           <div class="col-md-2 " style="background-color: rosybrown">
             <div class="card">
-                <img src="image/prodimg/<%=rs.getString("pro_img") %>" height="100px" class="card-img-top" alt="...">
+                <img src="image/prodimg/<%=rs.getString("pro_img") %>" height="170px" class="card-img-top" alt="...">
 <!--              <div class="card-body">
                   <h5 class="card-title"></h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -41,13 +53,20 @@
             </div>
           </div>
          <!--<div class="col-md-1"></div>-->
-            <div class="col-md-5 border">
-                <h4><%=rs.getString("pro_title") %></h4>
-                <p><%=rs.getString("pro_desc") %></p>
-                <b><%=rs.getString("pro_price") %></b>   
+         <div class="row col-md-4 border" style="background-color: rosybrown">
+                <h4 class="p-1"><%=rs.getString("pro_title") %></h4>
+                <b class="p-1"><%=rs.getString("pro_price") %>₹</b> 
+                <!--<div class="col-md-10">-->
+                <p class="p-1"><%=rs.getString("pro_desc") %></p>  
+               
+                <a href="backend?add=1"><b class="col-md-4 btn btn-success">Add to Cart</b></a>
+                <a href="#"><b class="col-md-3  btn btn-info">Buy</b></a>
+               
+              
             </div>
-       </div> 
+<!--       </div> -->
        <% } %>
+         <div >
        </div>
     </body>
 </html>

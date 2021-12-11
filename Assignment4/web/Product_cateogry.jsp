@@ -7,6 +7,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dbconnection.database"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +20,8 @@
     <body class="container">
        
         <h1 class="text-center mt-5 border">Product Details</h1>
+        <p><% String name = session.getAttribute("username").toString();
+             out.println(name);  %></p>
            <table>
                <tr>   
 
