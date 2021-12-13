@@ -34,7 +34,7 @@
             <h5><a class="nav-link" href="add_product.jsp">Add Product</a></h5>
         </li>
           <li class="nav-item">
-              <h5><a class="nav-link" href="#">View Data</a></h5>
+              <h5><a class="nav-link" href="cart.jsp">View Data</a></h5>
         </li>
       </ul>
      </div>     

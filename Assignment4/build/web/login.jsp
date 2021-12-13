@@ -18,7 +18,7 @@
                  <div class="col-md-3 " > </div>
                 <div class="col-md-5 mt-3"><% String error = request.getParameter("error"); 
                                                        if(error!=null) {  %> 
-                                                       <h4 class="text-danger" style="background-color: red">Username or password is wrong</h4>
+                                                       <h4 class="text-danger" style="background-color: lightpink">! Username or password is wrong</h4>
                                                        <% }
                                                         %></div>
                  </div>                                       

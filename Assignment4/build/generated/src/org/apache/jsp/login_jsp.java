@@ -75,13 +75,13 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <h5><a class=\"nav-link\" href=\"#\">Home</a></h5>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"nav-item\">\n");
-      out.write("            <h5><a class=\"nav-link\" href=\"#\">Add Category</a></h5>\n");
+      out.write("            <h5><a class=\"nav-link\" href=\"category.jsp\">Add Category</a></h5>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"nav-item\">\n");
-      out.write("            <h5><a class=\"nav-link disabled\">Add Product</a></h5>\n");
+      out.write("            <h5><a class=\"nav-link\" href=\"add_product.jsp\">Add Product</a></h5>\n");
       out.write("        </li>\n");
       out.write("          <li class=\"nav-item\">\n");
-      out.write("              <h5><a class=\"nav-link disabled\">View Data</a></h5>\n");
+      out.write("              <h5><a class=\"nav-link\" href=\"#\">View Data</a></h5>\n");
       out.write("        </li>\n");
       out.write("      </ul>\n");
       out.write("     </div>     \n");
@@ -102,7 +102,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
  String error = request.getParameter("error"); 
                                                        if(error!=null) {  
       out.write(" \n");
-      out.write("                                                       <h4 class=\"text-danger\" style=\"background-color: red\">Username or password is wrong</h4>\n");
+      out.write("                                                       <h4 class=\"text-danger\" style=\"background-color: lightpink\">! Username or password is wrong</h4>\n");
       out.write("                                                       ");
  }
                                                         

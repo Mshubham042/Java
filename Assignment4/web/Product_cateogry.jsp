@@ -22,6 +22,7 @@
         <h1 class="text-center mt-5 border">Product Details</h1>
         <p><% String name = session.getAttribute("username").toString();
              out.println(name);  %></p>
+        <p><%=session.getAttribute("userid")%></p>
            <table>
                <tr>   
 

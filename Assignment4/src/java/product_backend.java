@@ -49,6 +49,40 @@ public class product_backend extends HttpServlet {
             
              database db = new database();
               db.connect();
+              
+              
+              String removeitem = request.getParameter("dlt");
+              
+              if(removeitem!=null)
+                  
+              {
+                 out.println("u r on delete page"); 
+              }
+              
+              
+            String productid = request.getParameter("pro_id");
+         
+         if(productid!=null)
+         {
+             int pro_id = Integer.parseInt(productid);
+             HttpSession session = request.getSession();
+             int user = (int) session.getAttribute("userid");
+             String cartqry = "insert into cart values(0,"+user+", "+pro_id+" , 1 ) ";
+                 try {
+                     int condition = db.st.executeUpdate(cartqry);
+                     if(condition!=0)
+                     {
+                         response.sendRedirect("cart.jsp");
+                     }
+                     else
+                     {
+                         out.println("error");
+                     }
+                 } catch (SQLException ex) {
+                     Logger.getLogger(product_backend.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+             
+         }
             
               
           String login = request.getParameter("login");
@@ -62,11 +96,16 @@ public class product_backend extends HttpServlet {
           
                  try {
                      ResultSet rs = db.st.executeQuery(qry);
+//                     rs.next();
+                     
                      if(rs.next())
                      {
 //                         out.println("login");
+                         int u_id = rs.getInt("user_id");
+                         
                          HttpSession session = request.getSession();
                          session.setAttribute("username", uname);
+                         session.setAttribute("userid", u_id);
                          response.sendRedirect("Product_cateogry.jsp");
                      }
                      else

@@ -79,13 +79,13 @@ public final class Product_005fcateogry_jsp extends org.apache.jasper.runtime.Ht
       out.write("            <h5><a class=\"nav-link\" href=\"#\">Home</a></h5>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"nav-item\">\n");
-      out.write("            <h5><a class=\"nav-link\" href=\"#\">Add Category</a></h5>\n");
+      out.write("            <h5><a class=\"nav-link\" href=\"category.jsp\">Add Category</a></h5>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"nav-item\">\n");
-      out.write("            <h5><a class=\"nav-link disabled\">Add Product</a></h5>\n");
+      out.write("            <h5><a class=\"nav-link\" href=\"add_product.jsp\">Add Product</a></h5>\n");
       out.write("        </li>\n");
       out.write("          <li class=\"nav-item\">\n");
-      out.write("              <h5><a class=\"nav-link disabled\">View Data</a></h5>\n");
+      out.write("              <h5><a class=\"nav-link\" href=\"#\">View Data</a></h5>\n");
       out.write("        </li>\n");
       out.write("      </ul>\n");
       out.write("     </div>     \n");
@@ -104,6 +104,10 @@ public final class Product_005fcateogry_jsp extends org.apache.jasper.runtime.Ht
       out.write("    <body class=\"container\">\n");
       out.write("       \n");
       out.write("        <h1 class=\"text-center mt-5 border\">Product Details</h1>\n");
+      out.write("        <p>");
+ String name = session.getAttribute("username").toString();
+             out.println(name);  
+      out.write("</p>\n");
       out.write("           <table>\n");
       out.write("               <tr>   \n");
       out.write("\n");
